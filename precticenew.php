@@ -20,7 +20,7 @@
             position: absolute;
             width: 149px;
             height: 140px;
-            left: 546px;
+            left: 596px;
             top: 82px;
 
         }
@@ -38,7 +38,7 @@
 
 
         <div class="card" style="width: 55%; margin-left: 298px;">
-            <div class="card-header" style="background-color:#36526e; color:#fff;">
+            <div class="card-header" style="background-color:#c9617e; color:#fff;">
                 <h3 align="center"><B>INFORMATION ABOUT USER</B></h3>
             </div>
 
@@ -47,7 +47,7 @@
 
                 <img src="blank.png" alt="photo">
 
-                <form action="index1.php" method="GET">
+                <form action="precticenew.php" method="GET">
                     <div class="table-responsive ">
                         <table class="table table-borderless" style="width:60%; margin-left:20px;">
                             <div class="row">
@@ -56,20 +56,20 @@
                                         <lable class="col-from-lable"> <span>Student Name:</span></lable>
                                     </th>
                                     <td style="width:29%"> <input type="text" class="form-control capitalize_class" name="sname"
-                                            placeholder="Enter name" required=""
+                                            placeholder="Enter name" required
                                             aria-required="true"></span></td>
                                 </tr>
                                 <tr>
                                     <th style="width:10%"><span>Father's Name:</span></th>
-                                    <td style="width:29%"><span class="col"><input type="text" name="fname" 
-                                                class="form-control capitalize_class" required=""
+                                    <td style="width:29%"><span class="col">
+                                        <input type="text" name="fname" class="form-control capitalize_class" required
                                                 aria-required="true" placeholder="Enter name"></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th style="width:10%"><span>Mother's Name:</span></th>
                                     <td style="width:29%"><span class="col"><input type="text" name="mname"
-                                                class="form-control capitalize_class" required=""
+                                                class="form-control capitalize_class" required
                                                 aria-required="true" placeholder="Enter name"></span>
                                     </td>
                                 </tr>
@@ -83,9 +83,9 @@
                                     <th style="width:10%">
                                         <lable class="col-from-lable"> <span>User email:</span></lable>
                                     </th>
-                                    <td style="width:29%">
+                                    <td style="width:30.5%">
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control" placeholder="Your Email" required=""
+                                            <input type="email" class="form-control" placeholder="Your Email" required
                                             aria-required="true"
                                                 name="email">
                                             <span class="input-group-text">@gmail.com</span>
@@ -99,32 +99,32 @@
                         <div class="row">
                             <tr>
                                 <th>
-                                    <div class="checkbox" class="col-4" name="game" required=""
+                                    <div class="checkbox" class="col-4" required
                                     aria-required="true"> Games :-
-                                </th>
-                                <td><label><input type="checkbox" name="game" class="col-2"> Hockey</label></td>
-                                <td><label><input type="checkbox" name="game" class="col-2"> Vollyball</label></td>
-                                <td><label><input type="checkbox" name="game" class="col-2"> Cricket</label></td>
-                                <td><label><input type="checkbox" name="game" class="col-2"> Football</label></td>
-
+                                 </th>
+                                 <td><label><input type="checkbox" name="games[]" value="Hockey" class="col-2"> Hockey</label></td>
+                                 <td><label><input type="checkbox" name="games[]" value="Vollyball" class="col-2"> Vollyball</label></td>
+                                 <td><label><input type="checkbox" name="games[]" value="Cricket" class="col-2"> Cricket</label></td>
+                                 <td><label><input type="checkbox" name="games[]" value="Football" class="col-2"> Football</label></td>
+                            </tr>
                         </div>
-                        </tr>
+                        
                     </table>
             </div><br>
 
-            <table class="table table-borderless" style="width:72%; margin-left:20px;     margin-top:-16px;">
+            <table class="table table-borderless" style="width:72%; margin-left:20px; margin-top:-16px;">
                 <div class="row">
                     <tr>
                         <th class="col-3">Course name :</th>
                         <td class="col-9">
                             <div class="course" style="width:50%;">
 
-                                <select class="form-control" name="course" required=""
+                                <select class="form-control" name="course" required
                                     aria-required="true">
                                     <option value=""> Select </option>
-                                    <option value="2">B.sc</option>
-                                    <option value="4">B.ed</option>
-                                    <option value="5">BCA</option>
+                                    <option value="B.sc">B.sc</option>
+                                    <option value="B.ed">B.ed</option>
+                                    <option value="BCA">BCA</option>
                                 </select>
                             </div>
                     </tr>
@@ -140,60 +140,50 @@
             <br><br>
         </div>
 
-
     </div>
+
     </form>
-    </div>
+    
+</div>
 
+</div>
 
-    </div>
-    </div>
-    <br><br>
+</div>
+
+<br><br>
 
 <!-- starting table -->
-
-
-
-
+<div class="container">
 <table class="table table-responsive table-borderd bg-light" style="width:100%;">
-
 
 <tr>
 
     <th>student name</th>
     <th> father name</th>
-
     <th>mother name</th>
-
     <th>gmail</th>
-
     <th>course</th>
-
-
+     <th>games</th>
 
 </tr>
 <tr>
-
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+  <?php $_SERVER; ?>
+    <td>
+    <?php echo $_GET['sname']; ?>
+    
+   </td>
+    <td> <?php echo $_GET['fname']; ?></td>
+    <td> <?php echo $_GET['mname']; ?></td>
+    <td> <?php echo $_GET['email']; ?></td>
+    <td> <?php echo $_GET['course']; ?></td>
+    <td> <?php  $playing_games = $_GET['games']; 
+                $insert = implode(",",$playing_games);
+                 echo $insert;?> </td>
+ 
 </tr>
 
-
-
-
-
-
-
 </table>
-
-
-
-
-
-
+</div>
 </body>
 
 </html>
