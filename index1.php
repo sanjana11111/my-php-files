@@ -1,12 +1,10 @@
 <?php
+echo "<pre>";
+print_r($_GET);
+echo "</pre>";
 
-print_r($_REQUEST);
 
-echo "['sname']";
-echo "['fname']";
-echo "['mname']";
-echo "['email']";
-echo "['game']";
-echo "['course']";
-
+echo $_GET['fname'];
+echo $_GET['sname'];
+echo $_GET['age'];
 ?>
