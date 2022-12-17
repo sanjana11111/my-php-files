@@ -13,14 +13,13 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Times New Roman', Times, serif;
-
+            font-family: "cooper";
         }
 
         .container {
 
-            color: rgb(55, 111, 159);
-            background: rgb(68, 44, 90);
+            color: rgb(144, 180, 212);
+            background: rgb(80, 22, 134);
             width: 100%;
             display: flex;
             justify-content: center;
@@ -30,8 +29,8 @@
         }
 
         nav {
-            background-color: antiquewhite;
-            box-shadow: 0 20px rgba(0, 0, 0, 0.4);
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 20px rgba(0, 0, 0, 0.3);
             border-radius: 50px;
             padding: 15px;
         }
@@ -41,20 +40,40 @@
         li {
             padding: 13px 30px;
             margin: 8px;
-            
+            font-size: 20px;
             cursor: pointer;
-
             list-style: none;
             display: inline-block;
+            position: relative;
+            z-index: 2;
+            transition: color 0.4s;
 
         }
 
-        li {
-            background-color: aquamarine;
-            padding: 10px;
-            border-radius: 20px;
-            font-size: 30px;
-            margin: 0 12px;
+        nav ul li ::after {
+            content: '';
+            background: rgb(80, 22, 134);
+            border-radius: 30px;
+            height: 100%;
+            width: 100%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            opacity: 0;
+            z-index: -1;
+            transition: top 0.7s, opacity 0.7s;
+        }
+
+        nav ul li:hover {
+            color: whitesmoke;
+            background: rgb(80, 22, 134);
+            border-radius: 50px;
+        }
+
+        nav ul li:hover::after {
+            top: 50%;
+            opacity: 1;
         }
     </style>
 </head>
