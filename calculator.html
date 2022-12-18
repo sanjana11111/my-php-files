@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>creat a calculator</title>
+
+    <style>
+        .container {
+            margin: 0;
+            padding: 0;
+        }
+
+        .calculator {
+
+            width: 400px;
+            padding: 100px 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            justify-content: center;
+            align-items: center;
+            transform: translate(-50%, -50%);
+            transition: 2px;
+            text-align: center;
+            background-color: rgb(109, 158, 201);
+        }
+
+        #numbers {
+            margin: auto;
+            background: whitesmoke;
+            border: none;
+            border-radius: 15px;
+            width: 250px;
+            height: 40px;
+            font-size: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 400;
+            color: black;
+
+        }
+
+        .btnDesign {
+
+            margin: 2px;
+            background: whitesmoke;
+            border: none;
+            border-radius: 15px;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 400;
+            padding-top: 3;
+
+        }
+
+        .opDesign {
+
+            margin: 2px;
+            background: whitesmoke;
+            border: none;
+            border-radius: 15px;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 400;
+            padding-top: 3;
+            transition: 2px;
+            cursor: pointer;
+        }
+
+        .opDesign:hover {
+
+            background-color: rgb(109, 158, 201);
+        }
+        #eqql{
+            margin: 2px;
+            background: whitesmoke;
+            border: none;
+            border-radius: 15px;
+            width: 90px;
+            height: 40px;
+            font-size: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 400;
+            padding-top: 3;
+            transition: 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <form name="form1" class="calculator" action="ACalculator.html" method="post">
+            <input type="text" name="cal" id="numbers">
+            <br>
+            <br>
+            <input type="button" class="btnDesign" value="C" onclick="form1.cal.value=''">
+            <input type="button" class="btnDesign" value="X"
+                onclick="form1.cal.value=form1.cal.value.substring(0,form1.cal.value.length*1-1)">
+            <input type="button" class="btnDesign" value="00" onclick="form1.cal.value+='00'">
+            <input type="button" class="opDesign" value="/" onclick="form1.cal.value+='/'">
+            <br>
+            <br>
+            <input type="button" class="btnDesign" value="7" onclick="form1.cal.value+='7'">
+            <input type="button" class="btnDesign" value="8" onclick="form1.cal.value+='8'">
+            <input type="button" class="btnDesign" value="9" onclick="form1.cal.value+='9'">
+            <input type="button" class="opDesign" value="*" onclick="form1.cal.value+='*'">
+            <br>
+            <br>
+            <input type="button" class="btnDesign" value="4" onclick="form1.cal.value+='4'">
+            <input type="button" class="btnDesign" value="5" onclick="form1.cal.value+='5'">
+            <input type="button" class="btnDesign" value="6" onclick="form1.cal.value+='6'">
+            <input type="button" class="opDesign" value="-" onclick="form1.cal.value+='-'">
+            <br>
+            <br>
+            <input type="button" class="btnDesign" value="1" onclick="form1.cal.value+='1'">
+            <input type="button" class="btnDesign" value="2" onclick="form1.cal.value+='2'">
+            <input type="button" class="btnDesign" value="3" onclick="form1.cal.value+='3'">
+            <input type="button" class="opDesign" value="+" onclick="form1.cal.value+='+'">
+            <br>
+            <br>
+            <input type="button" class="btnDesign" value="0" onclick="form1.cal.value+='0'">
+            <input type="button" class="btnDesign" value="." onclick="form1.cal.value+='.'">
+            <input type="button"  id="eqql" value="=" onclick="form1.cal.value=eval(form1.cal.value)">
+            <br>
+            <br>
+        </form>
+    </div>
+</body>
+
+</html>
