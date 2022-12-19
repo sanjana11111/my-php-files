@@ -30,11 +30,12 @@
 
 
 //2. do-while loop example it's a exit control loop
-$a=0;
-do{
-    echo $a."<br>"; 
-    $a++;
-}while($a <= 10);
+
+// $a=0;
+// do{
+//     echo $a."<br>"; 
+//     $a++;
+// }while($a <= 10);
 
 
 //3. for loop example it's a entry control loop
@@ -43,5 +44,22 @@ for( $a=0; $a <= 10; $a++)
 {
     echo $a."<br>"; 
 }
+
+
+//4. foreach loop example it's a array 
+
+$arr = [
+"html" => 1100,
+"css" => 1200,
+"js" => 1500,
+"php" => 1900,
+];
+
+foreach( $arr as $course => $fee){
+
+echo " </br> the fees is $course is : $fee";
+
+}
+
 
 ?>
