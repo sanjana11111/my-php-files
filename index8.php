@@ -85,7 +85,8 @@
 $str ="this is me and i'm here";
 echo "$str";
 
-$arr = explode(" ",$str);
+//(sepretar,variable,limit)
+$arr = explode(" ",$str,3);  //agr me limit ki value 3 karti hu to mujhe apna data ka output 3 key me milega............................
 
 echo"<pre>";
 print_r($arr);
