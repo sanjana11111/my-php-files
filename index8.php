@@ -17,33 +17,50 @@
 //         break;
 // }
 
-
+//switch statement working proccess
 //example
-$age = 17;
 
-switch ($age) {
-    case ($age >= 18 && $age <=65):
-        echo "Yes you can vote";
-        break;
+// $age = 17;
 
-        case (18 - $age == 1 || 18 - $age == 2):
-            echo "You can vote when you turn 18";
-            break;
+// switch ($age) {
+//     case ($age >= 18 && $age <=65):
+//         echo "Yes you can vote";
+//         break;
 
-        case ($age >= 0 && $age <=15):
-            echo "You are not capeble for vote";
-            break;
+//         case (18 - $age == 1 || 18 - $age == 2):
+//             echo "You can vote when you turn 18";
+//             break;
+
+//         case ($age >= 0 && $age <=15):
+//             echo "You are not capeble for vote";
+//             break;
         
-            case ($age >= 66 && $age <=150):
-                echo "You will never be able to vote again";
-                break;
+//             case ($age >= 66 && $age <=150):
+//                 echo "You will never be able to vote again";
+//                 break;
             
-             default:
-              echo "No you can not vote";
-             break;
-}
+//              default:
+//               echo "No you can not vote";
+//              break;
+// }
 
 
+//recursion function
+                      //function me khud ko call karna
+
+ //example
+ 
+ $i = 0;
+ function num($i){
+
+    if ($i <= 100){
+    echo "<br> $i";
+    $i++;
+    num($i); 
+}    
+ }
+ 
+ num($i);
 
 
 ?>
