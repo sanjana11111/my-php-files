@@ -82,13 +82,29 @@
 
 //Explodefunction example
 
-$str ="this is me and i'm here";
-echo "$str";
+// $str ="this is me and i'm here";
+// echo "$str";
 
-//(sepretar,variable,limit)
-$arr = explode(" ",$str,3);  //agr me limit ki value 3 karti hu to mujhe apna data ka output 3 key me milega............................
+// //(sepretar,variable,limit)
+// $arr = explode(" ",$str,3);  //agr me limit ki value 3 karti hu to mujhe apna data ka output 3 key me milega............................
 
-echo"<pre>";
-print_r($arr);
-echo"</pre>";
+// echo"<pre>";
+// print_r($arr);
+// echo"</pre>";
+
+
+//case changing methode
+
+$tom ="i love tom and jerry";
+
+echo strtolower($tom)."<br>";//converts a string to lowercase.
+
+echo strtoupper($tom)."<br>";//conver a string to uppercase.
+
+echo lcfirst($tom)."<br>";//convert the first character of a string to lowercase.
+
+echo ucfirst($tom)."<br>";//conver the first cheracter of a sring to uppercase.
+
+echo ucwords($tom)."<br>";//converts the first character of each word in a string to uppercase.
+
 ?>
