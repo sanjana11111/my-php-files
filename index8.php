@@ -1,22 +1,47 @@
 <?php
 
 //swich statement
-$x = 10;
+// $x = 10;
 
-switch ($x) {
-    case 8:
-        echo "varriable x is 8";
-        break;
+// switch ($x) {
+//     case 8:
+//         echo "varriable x is 8";
+//         break;
        
-        case 6:
-    echo "varriable x is not 6";
-        break;
+//         case 6:
+//     echo "varriable x is not 6";
+//         break;
     
-    default:
-    echo "varriable x is not 8 $ not 6";
-        break;
-}
+//     default:
+//     echo "varriable x is not 8 $ not 6";
+//         break;
+// }
 
+
+//example
+$age = 17;
+
+switch ($age) {
+    case ($age >= 18 && $age <=65):
+        echo "Yes you can vote";
+        break;
+
+        case (18 - $age == 1 || 18 - $age == 2):
+            echo "You can vote when you turn 18";
+            break;
+
+        case ($age >= 0 && $age <=15):
+            echo "You are not capeble for vote";
+            break;
+        
+            case ($age >= 66 && $age <=150):
+                echo "You will never be able to vote again";
+                break;
+            
+             default:
+              echo "No you can not vote";
+             break;
+}
 
 
 
