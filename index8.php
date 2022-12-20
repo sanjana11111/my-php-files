@@ -50,17 +50,44 @@
 
  //example
  
- $i = 0;
- function num($i){
+//  $i = 0;
+//  function num($i){
 
-    if ($i <= 100){
-    echo "<br> $i";
-    $i++;
-    num($i); 
-}    
- }
+//     if ($i <= 100){
+//     echo "<br> $i";
+//     $i++;
+//     num($i); 
+// }    
+//  }
  
- num($i);
+//  num($i);
 
 
+
+//Implode function example
+
+// $arr = [
+//  "Hello",
+//  "my",
+//  "name",
+//  "is",
+//  "sanjana"];
+ 
+
+//  $str = implode (" ",$arr);
+
+//     echo $str;
+
+
+
+//Explodefunction example
+
+$str ="this is me and i'm here";
+echo "$str";
+
+$arr = explode(" ",$str);
+
+echo"<pre>";
+print_r($arr);
+echo"</pre>";
 ?>
