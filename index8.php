@@ -111,13 +111,25 @@
 //str_replace()
 
 
-$p = "this is a simple sentence";
+// $p = "this is a simple sentence";
 
-echo str_replace("this", "it" , $p)."<br/>";
+// echo str_replace("this", "it" , $p)."<br/>"; // this str_replace function replace the word what is given and change the  word given by me....
 
-echo $p;
+// echo $p;
 
+//strrev()
+//string reverse function
 
+// $a ="this is my page";
+
+// echo strrev($a);
+
+//substr()
+//this is called substring function
+
+$a ="hello dear here i am";
+
+echo substr($a, 3, 4); //veriable, kaha se shuru karna hain, jaha se shuru hua hain vaha se kaha tak ki lenth ho vo print hoga
 
 
 ?>
