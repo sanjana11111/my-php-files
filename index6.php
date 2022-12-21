@@ -15,9 +15,9 @@ function entry($age){
 }
 
 
-echo "your age 45:"."\n". entry(45) . "<br>";
+ echo "your age 45:"."\n". entry(45) . "<br>";
 
-echo "your age 15:"."\n". entry(15) . "<br>";
+ echo "your age 15:"."\n". entry(15) . "<br>";
 
 
 

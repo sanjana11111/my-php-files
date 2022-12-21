@@ -16,7 +16,7 @@
         age: <input type="text" name="age"><br>
         <input type="submit" name="save" value="submit">
 
-</form>
+    </form>
 
 
 </body>

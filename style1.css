@@ -1,0 +1,43 @@
+body, html{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.5em;
+    font-family: "Lato", sans-serif;
+    height:100%;
+    
+    color:aquamarine;
+}
+.img1{
+background-image: url(back.jfif) ;
+min-height: 700px;
+}
+.img2{
+    background-image: url(background.jfif) ;
+    min-height: 700px;
+    }
+    .img3{
+        background-image: url(foodm.jpg) ;
+        min-height: 700px;
+        }
+
+.img1,
+.img2,
+.img3{
+position: relative;
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+
+}
+.text{
+    position:absolute;
+    top:50%;
+    width:100%;
+    text-align: center;
+    font-size: 27px;
+    letter-spacing: 3px;
+    color: blueviolet;
+    text-transform: uppercase;
+    background: #fff;
+}
