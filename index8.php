@@ -127,9 +127,14 @@
 //substr()
 //this is called substring function
 
-$a ="hello dear here i am";
+// $a ="hello dear here i am";
 
-echo substr($a, 3, 4); //veriable, kaha se shuru karna hain, jaha se shuru hua hain vaha se kaha tak ki lenth ho vo print hoga
+// echo substr($a, 3, 4); //veriable, kaha se shuru karna hain, jaha se shuru hua hain vaha se kaha tak ki lenth ho vo print hoga
 
+//another example
+
+$a ="hello dear here i am  Kedarnath Dham, located in the Rudraprayag district of Uttarakhand, is one of the most paramount locations for worshipers of Shiva. The air appears to be reverberating with the name of Lord Shiva amid the mighty snow-clad peaks, enchanting meadows and forests of the lower mountain range of Himalayas. Situated in a breathtaking location, near the source of Mandakini River and at the height of 3,584 meters, Kedarnath Dham celebrates the greatness of Lord Shiva.<br> <br>Kedarnath temple is one of the 12 Jyotir Lingams and is also the most important temple among the Panch Kedars. It is also one of the significant temples of the sacred Chota Char Dham Yatra in Uttarakhand, raising the glory of the place to further heights. Accessible from major destinations of Uttarakhand, the motorable road towards Kedarnath temple stretches till Gauri Kund. After that one needs to take a 14 km trek towards Kedarnath temple.<br> <br>The hard journey till the great shrine of Shiva is well compensated with the spiritual atmosphere which is created by the unruffled, tranquil and splendid beauty of the region. The majestic Kedarnath peak (6,940 meters) stands behind the temple along with other peaks, forming a perfect setting for the holy land of the supreme deity. The conical-shaped Shiva lingam in the Kedarnath temple is a unique feature of the temple among all Shiva shrinesThe Shiva idol is welcomed back and the temple is opened again after 6 months in the Vaisakh (Apr/May) period of Hindu calendar..";
+
+echo substr($a, 0, 323);
 
 ?>
