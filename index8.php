@@ -95,16 +95,29 @@
 
 //case changing methode
 
-$tom ="i love tom and jerry";
+// $tom ="i love tom and jerry";
 
-echo strtolower($tom)."<br>";//converts a string to lowercase.
+// echo strtolower($tom)."<br>";//converts a string to lowercase.
 
-echo strtoupper($tom)."<br>";//conver a string to uppercase.
+// echo strtoupper($tom)."<br>";//conver a string to uppercase.
 
-echo lcfirst($tom)."<br>";//convert the first character of a string to lowercase.
+// echo lcfirst($tom)."<br>";//convert the first character of a string to lowercase.
 
-echo ucfirst($tom)."<br>";//conver the first cheracter of a sring to uppercase.
+// echo ucfirst($tom)."<br>";//conver the first cheracter of a sring to uppercase.
 
-echo ucwords($tom)."<br>";//converts the first character of each word in a string to uppercase.
+// echo ucwords($tom)."<br>";//converts the first character of each word in a string to uppercase.
+
+
+//str_replace()
+
+
+$p = "this is a simple sentence";
+
+echo str_replace("this", "it" , $p)."<br/>";
+
+echo $p;
+
+
+
 
 ?>
