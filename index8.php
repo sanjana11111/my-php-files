@@ -153,15 +153,32 @@
 
 //Ceil or floor function
 
-$a = 5/2; //variable
+// $a = 5/2; //variable
 
-echo $a."\t normal<br> ";// normal print
+// echo $a."\t normal<br> ";// normal print
 
-echo ceil($a)." ceil<br>"; //decimal to uppercase
+// echo ceil($a)." ceil<br>"; //decimal to uppercase
 
-echo floor($a)." floor<br>"; // decimal to lowercase
+// echo floor($a)." floor<br>"; // decimal to lowercase
 
+//pow and sqrt
 
+// echo pow(4,2)."<br>";// 4 ki power 2 hain to print 16 hoga
 
+// echo sqrt(144)."<br>";// 144 ka squre root 12 hain isliye 12 print hoga
+
+// echo sqrt(pow(4,2));// isme pehle 4x4 16 hoga then 16 ka sqrt hone ke baad vaps print me 4 aayega
+
+//date_default_timezone_set() function // set inia and other contry time
+
+// getdate() funtion
+
+date_default_timezone_set("ASIA/KOLKATA");
+echo "<pre>";
+ print_r(getdate());
+echo "</pre>";
+
+$d =  getdate();
+echo $d['mday'];
 
 ?>
