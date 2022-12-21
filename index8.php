@@ -142,11 +142,24 @@
 
 //str 
 
-$a = "hye! this is me and here i am";
-echo str_word_count($a)."<br>";
-echo strlen($a)."<br>";
-echo str_repeat($a."<br>", 5)."<br>";
+// $a = "hye! this is me and here i am";
+// echo str_word_count($a)."<br>";
+// echo strlen($a)."<br>";
+// echo str_repeat($a."<br>", 5)."<br>";
 
+
+//random no.
+//echo rand(1000,9999);
+
+//Ceil or floor function
+
+$a = 5/2; //variable
+
+echo $a."\t normal<br> ";// normal print
+
+echo ceil($a)." ceil<br>"; //decimal to uppercase
+
+echo floor($a)." floor<br>"; // decimal to lowercase
 
 
 
