@@ -192,6 +192,9 @@ date_default_timezone_set("ASIA/KOLKATA");
 //date()
 // echo date('d-D(NS)-l-z');
 
-echo date('d-F-Y h:i:s:a');
+echo date('d-F-Y h:i:s:a')."<br>";// current time
 
+
+$str = strtotime('04-11-2022 21:00:30'); // time is give by me
+echo date('d-F-Y h:i:s:a',$str);
  ?>
