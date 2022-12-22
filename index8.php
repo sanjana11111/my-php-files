@@ -173,12 +173,25 @@
 
 // getdate() funtion
 
+// date_default_timezone_set("ASIA/KOLKATA");
+// echo "<pre>";
+//  print_r(getdate());
+// echo "</pre>";
+
+// $d =  getdate();
+// echo $d['mday'];
+
+
+//date() & time()
+
+//time()
+
+echo time()."<br>"; //seconds in 1st january 1970 
+echo time()/60/60/24/365 ."<br>"; //sec. to min to hour to day to year result
 date_default_timezone_set("ASIA/KOLKATA");
-echo "<pre>";
- print_r(getdate());
-echo "</pre>";
+//date()
+// echo date('d-D(NS)-l-z');
 
-$d =  getdate();
-echo $d['mday'];
+echo date('d-F-Y h:i:s:a');
 
-?>
+ ?>
