@@ -1,0 +1,40 @@
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    text-align: center;
+    width: 35%;
+}
+
+.card {
+    margin-top: 100px;
+    left: 348px;
+}
+
+.card-header, h1 {
+    background-color: rgb(29, 29, 83);
+    color:rgb(193, 218, 218);
+    margin: 0;
+    padding: 0;
+}
+.form-control{
+    background: rgb(117, 75, 82);
+}
+.tbox{
+    border: 2px solid #fff;
+    border-radius: 5px;
+    padding: 8px;
+    outline: none;
+    background: none;
+    color:antiquewhite;
+}
+
+.tbox:focus{
+    border: 2px solid rgba(211, 218, 228, 0.783);
+}
+form{   position:relative;}
