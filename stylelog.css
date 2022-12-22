@@ -1,0 +1,17 @@
+
+*{
+
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+   text-align: center;
+    width:50%;
+}
+.card{
+    margin-top: 100px;
+    
+    left:348px;
+}
