@@ -47,7 +47,7 @@
 
                 <img src="blank.png" alt="photo">
 
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="GET">
+                <form action="precticenew.php" method="GET">
                     <div class="table-responsive ">
                         <table class="table table-borderless" style="width:60%; margin-left:20px;">
                             <div class="row">
@@ -184,26 +184,6 @@
 
 </table>
 </div>
-<?php 
-$sname=$fname=$mname=$email=$course=$games="";
-
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    $name = test_input($_GET["sname"]);
-    $name = test_input($_GET["fname"]);
-    $name = test_input($_GET["mname"]);
-    $email = test_input($_GET["email"]);
-    $website = test_input($_GET["course"]);
-    $comment = test_input($_GET["games"]);
-   
-  }
-  
-  function test_input($data) {
-   
-    $data = htmlspecialchars($data);
-    return $data;
-  }
-
-?>
 </body>
 
 </html>
