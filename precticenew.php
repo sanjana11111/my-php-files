@@ -133,7 +133,7 @@
 
             <div class="row">
                 <div class="end" align="center">
-                    <button type="submit" class="btn btn-dark">Submit</button>
+                    <button type="submit" name="save" class="btn btn-dark">Submit</button>
                 </div>
 
             </div>
