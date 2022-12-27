@@ -45,8 +45,6 @@ function text($data){
 
 
 ?>
-
-
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" methode="get">
 
     <h1>Requred from</h1>
