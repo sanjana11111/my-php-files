@@ -72,16 +72,15 @@
 // }
 
     ?>
-
 <?php
-    error_reporting(0);
+     error_reporting(0);
 if($_SERVER['REQUEST_METHOD']=='POST'){
     $name= $_POST['name'];
     $email= $_POST['email'];
     $desc= $_POST['desc'];
+   
   }
-
- ?>
+      ?>
       <?php
       $servername = "localhost";
       $username = "root";
@@ -91,30 +90,28 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
       
       $conn = mysqli_connect($servername,$username,$password,$database);
       
- 
-
+      // mysqli_qurey($conn,$sql);
     //   if(!$conn){
     //      die("Sorry we are not connected". mysqli_connect_error());
     //   }else{
     //       echo "Connection was successful <br>";
     //   }
 
-      $sql= "INSERT INTO `friend details` (`name`, `email`, `desc`) VALUES ('$name', '$email', '$desc')";
-      
+      $sql="INSERT INTO `friend details` (`name`, `email`, `desc`) VALUES ('$name', '$email', '$desc')";
 
       $result = mysqli_query($conn, $sql);
       
       if($result){
 
-        echo '<div class="alert alert-success" role="alert">
+                
+            echo '<div class="alert alert-success" role="alert">
            <h4>"Your form has been Submited <strong>Successfully</strong>!"</h4>
              </div>';
             }else{
             echo '<div class="alert alert-danger" role="alert">
            <h4>"Your form has been <strong>NOT</strong>Submited!"</h4>
            </div>';
-               
-      }
+               }
       
       ?>
 
