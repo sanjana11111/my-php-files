@@ -16,7 +16,7 @@ if(!$conn){
      echo "Connection was successful <br>";
    }
 
-   $sql="SELECT * FROM `fruit color`";
+   $sql="SELECT * FROM `trip` WHERE `trip` = 'kashmir';";
 
       $result = mysqli_query($conn,$sql);
 
@@ -24,9 +24,14 @@ if(!$conn){
       $num = mysqli_num_rows($result);
       echo $num."this two record found in data base. <br> ";
 
+  if ($num>0){
+      while($row= mysqli_fetch_assoc($result)){
+       
+       
+        echo $row['s.no'] . ". Hello " . $row['name']." this is your age ". $row['age'] ." and your trip is ". $row['trip'].".<br>";
 
+    }
 
-
- 
+  }
 
 ?>
