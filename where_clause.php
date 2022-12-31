@@ -1,7 +1,5 @@
 <?php
 //update
-
-
 //Database connection 
 $servername ="localhost";
 $username="root";
@@ -16,7 +14,7 @@ if(!$conn){
      echo "Connection was successful <br>";
    }
 
-   $sql="SELECT * FROM `trip` WHERE `trip` = 'kashmir';";
+   $sql= "SELECT * FROM `trip` WHERE `trip` = 'kashmir';";
 
       $result = mysqli_query($conn,$sql);
 
@@ -24,14 +22,41 @@ if(!$conn){
       $num = mysqli_num_rows($result);
       echo $num."this two record found in data base. <br> ";
 
+      //it prints the given s.no in the datbase
+
+  // if ($num>0){
+
+  //     while($row = mysqli_fetch_assoc($result)){
+       
+  //       echo $row['s.no'] . ". Hello " . $row['name']." this is your age ". $row['age'] ." and your trip is ". $row['trip'].".<br>";
+
+  //   }
+  // }
+
+//Fetch the data in database
+    //it prints consecutive s.no. 
+    $no=1;
+
   if ($num>0){
-      while($row= mysqli_fetch_assoc($result)){
+
+      while($row = mysqli_fetch_assoc($result)){
        
-       
-        echo $row['s.no'] . ". Hello " . $row['name']." this is your age ". $row['age'] ." and your trip is ". $row['trip'].".<br>";
+        echo $no . ". Hello " . $row['name']." this is your age ". $row['age'] ." and your trip is ". $row['trip'].".<br>";
+
+        $no = $no+1;
 
     }
-
   }
 
+  //update data in database
+  $sql="UPDATE `trip` SET `trip` = 'kashmir' WHERE `s.no` = 2"; 
+
+  $result = mysqli_query($conn,$sql);
+echo var_dump($result);
+  if($result){
+
+    echo "We updated the record Successfully";
+  }else{
+    echo "We could not update the record Successfully";
+  }
 ?>
