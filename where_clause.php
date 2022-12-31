@@ -14,7 +14,8 @@ if(!$conn){
      echo "Connection was successful <br>";
    }
 
-   $sql= "SELECT * FROM `trip` WHERE `trip` = 'kashmir';";
+   $sql= "SELECT * FROM `trip` WHERE `name` = 'neha'";
+   
 
       $result = mysqli_query($conn,$sql);
 
@@ -49,10 +50,13 @@ if(!$conn){
   }
 
   //update data in database
-  $sql="UPDATE `trip` SET `trip` = 'kashmir' WHERE `s.no` = 2"; 
+
+  $sql="UPDATE `trip` SET `name` = 'shital' WHERE `trip`.`s.no` = 5";
 
   $result = mysqli_query($conn,$sql);
-echo var_dump($result);
+     echo var_dump($result); //check bool to check the update
+     $aff = mysqli_affected_rows($conn);
+     echo "<br> number of affected rows: $aff";
   if($result){
 
     echo "We updated the record Successfully";
