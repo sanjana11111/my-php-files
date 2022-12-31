@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password ="";
-$database = "sonu";
+$database = "color";
 
 $conn = mysqli_connect($servername,$username,$password,$database);
 
@@ -15,11 +15,8 @@ if(!$conn){
 
  }
 
- $name="mushkan";
- $age=27;
- $gender="female";
 
- $sql="INSERT INTO `deatils` (`name`, `age`, `gender`) VALUES ('$name', '$age', '$gender')";
+$sql="INSERT INTO `trip` (`name`, `age`, `trip`) VALUES ('mina', '24', 'mumbai')";
 
  $result = mysqli_query($conn, $sql);
  
