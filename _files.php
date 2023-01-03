@@ -8,5 +8,18 @@
 
 // readfile("textfile.txt"); //it's only print the given sentence.
 // readfile("blank.png")
-readfile("about.php")
+// readfile("about.php")
+
+$fp =fopen("textfile.txt","r");//writen value resource or false
+// echo var_dump($fp);
+if(!$fp){
+die("Unable to open thi file.......");
+}
+
+$content = fread($fp,filesize("textfile.txt"));// peramiter>>>>>1. variable........... 2.length//writen content
+fclose($fp);//file close
+echo "$content";
+
+
+
 ?>
