@@ -114,10 +114,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             </div>
         </div>
     </div>
-    <nav class="navbar navbar-expand-lg" style="background-color:rgb(11, 72, 238); padding:17px 0;">
+    <nav class="navbar navbar-expand-lg" style="background-color:rgb(11, 72, 238); padding:1px 0;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#" style="color:#ffffff;">
-                <h4>iNotes</h4>
+                <img src="/php prectice/plogo.png" style="height: 85px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -128,15 +128,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="color:#ffffff;">
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="#"
-                            style="color:#ffffff; padding-left: 35px;">Home</a>
+                            style="color:#ffffff; padding-left: 25px;"><h4>Home</h4></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="#"
-                            style="color:#ffffff; padding-left: 35px;">About</a>
+                            style="color:#ffffff; padding-left: 25px;"><h4>About</h4></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="#"
-                            style="color:#ffffff; padding-left: 35px;">Contact Us</a>
+                            style="color:#ffffff; padding-left: 25px;"><h4>Contact Us</h4></a>
                     </li>
                 </ul>
                 <form class="d-flex">
