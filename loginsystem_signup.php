@@ -1,3 +1,21 @@
+<?php
+
+if($_SERVER['REQUST_METHOD']=="POST"){
+
+include 'loginsystem_dbconnection.php';
+$username=$_POST["username"];
+$password=$_POST["password"];
+$cpassword=$_POST["cpassword"];
+$exists == false;
+
+if(($password == $cpassword) && $exists == false){
+
+
+    
+}
+
+}
+?>
 <!doctype html>
 <html lang="en">
 
@@ -24,11 +42,17 @@
 
 <body>
     <?php require 'loginsystem_nav.php' ?>
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Success!</strong> Your account is now created and you can Login.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
     <div class="container">
 
         <h1 class="text-center">Signup to our website.</h1>
 
-        <form>
+        <form action="loginsystem_signup.php" method="post">
             <div class="mb-3 col-md-7">
                 <label for="username" class="form-label">UserName</label>
                 <input type="text" class="form-control" id="username" name="username">
