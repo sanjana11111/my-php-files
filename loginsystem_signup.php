@@ -1,17 +1,21 @@
 <?php
-
-if($_SERVER['REQUST_METHOD']=="POST"){
+$showAlert=false;
+if($_SERVER['REQUEST_METHOD']=="POST"){
 
 include 'loginsystem_dbconnection.php';
 $username=$_POST["username"];
 $password=$_POST["password"];
 $cpassword=$_POST["cpassword"];
-$exists == false;
-
-if(($password == $cpassword) && $exists == false){
 
 
-    
+if(($password == $cpassword)){
+
+$sql="INSERT INTO `user`(`username`, `password`, `date`) VALUES ('$username','$password',current_timestamp())";
+
+$result = mysqli_query($conn,$sql);
+if($result){
+    $showAlert=true;
+}
 }
 
 }
@@ -30,10 +34,11 @@ if(($password == $cpassword) && $exists == false){
 
     <title>Sign up</title>
     <style>
-     label{
+        label {
             font-size: 20px;
         }
-        form{
+
+        form {
             margin-left: 29%;
         }
     </style>
@@ -42,12 +47,14 @@ if(($password == $cpassword) && $exists == false){
 
 <body>
     <?php require 'loginsystem_nav.php' ?>
-
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <?php
+   if($showAlert){
+    echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
   <strong>Success!</strong> Your account is now created and you can Login.
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-
+</div>';
+   }
+?>
     <div class="container">
 
         <h1 class="text-center">Signup to our website.</h1>
@@ -56,7 +63,7 @@ if(($password == $cpassword) && $exists == false){
             <div class="mb-3 col-md-7">
                 <label for="username" class="form-label">UserName</label>
                 <input type="text" class="form-control" id="username" name="username">
-                
+
             </div>
             <div class="mb-3  col-md-7">
                 <label for="password" class="form-label">Password</label>
