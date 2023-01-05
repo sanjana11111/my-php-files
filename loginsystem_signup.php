@@ -1,24 +1,30 @@
 <?php
 $showAlert=false;
+$showError=false;
+
 if($_SERVER['REQUEST_METHOD']=="POST"){
 
 include 'loginsystem_dbconnection.php';
 $username=$_POST["username"];
 $password=$_POST["password"];
 $cpassword=$_POST["cpassword"];
+$exists= true;
 
-
-if(($password == $cpassword)){
+if(($password == $cpassword) && $exists == true){
 
 $sql="INSERT INTO `user`(`username`, `password`, `date`) VALUES ('$username','$password',current_timestamp())";
 
 $result = mysqli_query($conn,$sql);
-if($result){
-    $showAlert=true;
-}
+      if($result){
+          $showAlert=true;
+        }
+    } elseif($password != $cpassword){
+    $showError=" Your account is not created Please create an account.";
+       }
+     
 }
 
-}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -41,6 +47,7 @@ if($result){
         form {
             margin-left: 29%;
         }
+        
     </style>
 
 </head>
@@ -54,12 +61,18 @@ if($result){
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>';
    }
+   if($showError){
+    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>Opps!</strong>'.$showError.'
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>';
+   }
 ?>
-    <div class="container">
+    <div class="container my-4">
 
         <h1 class="text-center">Signup to our website.</h1>
 
-        <form action="loginsystem_signup.php" method="post">
+        <form class="my-5" action="loginsystem_signup.php" method="post">
             <div class="mb-3 col-md-7">
                 <label for="username" class="form-label">UserName</label>
                 <input type="text" class="form-control" id="username" name="username">
@@ -75,7 +88,7 @@ if($result){
                 <div id="emailHelp" class="form-text">Make sure to type the same Password</div>
             </div>
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="checkbox" name="checkbox">
+                <input type="checkbox" class="form-check-input" id="checkbox" name="checkbox" required>
                 <label class="form-check-label" for="checkbox">Check me out</label>
             </div>
             <button type="submit" class="btn btn-warning  col-md-7">Sign Up</button>
