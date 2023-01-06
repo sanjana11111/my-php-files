@@ -8,25 +8,30 @@ $username=$_POST["username"];
 $password=$_POST["password"];
 
 
-$sql="Select * from user where username='$username' AND password='$password'";
+// $sql="Select * from user where username='$username' AND password='$password'";
+$sql="Select * from user where username='$username'";
 $result = mysqli_query($conn,$sql);
 $num = mysqli_num_rows($result);
 
       if($num == 1){
-          $login=true;
-          session_start();
-          $_SESSION['loggedin']= true;
-            $_SESSION['username']= $username;
-//redirect function
-            header("location: loginsystem_welcome.php");
-        }
-   else{
-    $showError="Invalid Credentials";
+        while($row=mysqli_fetch_assoc($result)){
+            if($row=password_verify($password,$row['password'])){// password , jo password database me hain
+         
+               $login=true;
+               session_start();
+               $_SESSION['loggedin']= true; //declear
+               $_SESSION['username']= $username;
+             //redirect function
+               header("location: loginsystem_welcome.php");
+            }else{
+                $showError="Invalid Credentials";
+                }
+           }
+          }else{
+               $showError="Invalid Credentials";
+           }
+
        }
-      }  
-
-
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -77,12 +82,12 @@ $num = mysqli_num_rows($result);
         <form class="my-5" action="loginsystem_login.php" method="post">
             <div class="mb-3 col-md-7">
                 <label for="username" class="form-label">UserName</label>
-                <input type="text" class="form-control" id="username" name="username">
+                <input type="text" maxlength=20; class="form-control" id="username" name="username">
 
             </div>
             <div class="mb-3  col-md-7">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password">
+                <input type="password" maxlength=20; class="form-control" id="password" name="password">
             </div>
          
             <div class="mb-3 form-check">
