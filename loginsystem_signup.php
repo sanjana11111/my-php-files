@@ -19,8 +19,8 @@ if($numExistRows>0){
 }else{
 
        if(($password == $cpassword)){
-
-          $sql="INSERT INTO `user`(`username`, `password`, `date`) VALUES ('$username','$password',current_timestamp())";
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+          $sql="INSERT INTO `user`(`username`, `password`, `date`) VALUES ('$username','$hash',current_timestamp())";
 
           $result = mysqli_query($conn,$sql);
          if($result){
@@ -83,16 +83,16 @@ if($numExistRows>0){
         <form class="my-5" action="loginsystem_signup.php" method="post">
             <div class="mb-3 col-md-7">
                 <label for="username" class="form-label">UserName</label>
-                <input type="text" class="form-control" id="username" name="username">
+                <input type="text" maxlength=20; class="form-control" id="username" name="username">
 
             </div>
             <div class="mb-3  col-md-7">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password">
+                <input type="password" maxlength=20; class="form-control" id="password" name="password">
             </div>
             <div class="mb-3  col-md-7">
                 <label for="cpassword" class="form-label">Confirm Password</label>
-                <input type="password" class="form-control" id="cpassword" name="cpassword">
+                <input type="password" maxlength=20; class="form-control" id="cpassword" name="cpassword">
                 <div id="emailHelp" class="form-text">Make sure to type the same Password</div>
             </div>
             <div class="mb-3 form-check">
