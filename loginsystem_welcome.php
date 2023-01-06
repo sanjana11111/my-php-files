@@ -3,7 +3,7 @@
 session_start();
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!= true){
   header("location: loginsystem_login.php");
-  exit;
+  
 }
 
 ?>
@@ -113,13 +113,13 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!= true){
       </div>
   </main>
   <footer>
-    <div class="foot">
+    <!-- <div class="foot">
 
         <span class="headding" style="width:500px;">DO YOU WANT TO LOG OUT THEN <br>CHECK THIS BUTTON</span>
         <button class="form-control" class="sub1" type="submit"
         style="width:272px; height: 96px; position:absolute; left:1045px;top:1346px;color:rgb(253, 45, 8);" onclick="window.location.href='loginsystem_logout.php';"><strong >
          <h1>LOG OUT</h1></strong></button>
-    </div>
+    </div> -->
 
 
   </footer>

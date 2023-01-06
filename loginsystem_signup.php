@@ -5,25 +5,33 @@ $showError=false;
 if($_SERVER['REQUEST_METHOD']=="POST"){
 
 include 'loginsystem_dbconnection.php';
+
 $username=$_POST["username"];
 $password=$_POST["password"];
 $cpassword=$_POST["cpassword"];
-$exists= true;
 
-if(($password == $cpassword) && $exists == true){
+$existSql="SELECT * FROM `user` WHERE username='$username'";
+$result=mysqli_query($conn,$existSql);
+$numExistRows= mysqli_num_rows($result);
 
-$sql="INSERT INTO `user`(`username`, `password`, `date`) VALUES ('$username','$password',current_timestamp())";
+if($numExistRows>0){
+    $showError="Username Alredy Exiest.";
+}else{
 
-$result = mysqli_query($conn,$sql);
-      if($result){
-          $showAlert=true;
-        }
+       if(($password == $cpassword)){
+
+          $sql="INSERT INTO `user`(`username`, `password`, `date`) VALUES ('$username','$password',current_timestamp())";
+
+          $result = mysqli_query($conn,$sql);
+         if($result){
+                 $showAlert=true;
+           }
     } elseif($password != $cpassword){
-    $showError=" Your account is not created Please create an account.";
+    $showError=" Password do not match";
        }
      
 }
-
+}
 
 ?>
 <!doctype html>

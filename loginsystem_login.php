@@ -84,11 +84,11 @@ $num = mysqli_num_rows($result);
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="password" name="password">
             </div>
-<!--          
+         
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="checkbox" name="checkbox" required>
                 <label class="form-check-label" for="checkbox">Check me out</label>
-            </div> -->
+            </div>
             <button type="submit" class="btn btn-warning  col-md-7">Login</button>
         </form>
     </div> <!-- Optional JavaScript; choose one of the two! -->
