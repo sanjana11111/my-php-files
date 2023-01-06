@@ -117,7 +117,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!= true){
   <footer>
     <div class="foot">
 
-        <span class="headding" style="width:500px;">DO YOU WANT TO LOG OUT THEN <br>CHECK THIS BUTTON</span>
+        <span class="headding" style="width:500px;">DO YOU WANT TO LOG OUT THEN <br>CLICK THIS BUTTON>>>>></span>
         <a href="loginsystem_logout.php">
         <button class="form-control" class="sub1" type="submit"
         style="width:272px; height: 96px; position:absolute; left:1045px;top:1576px;color:rgb(253, 45, 8);"><strong >

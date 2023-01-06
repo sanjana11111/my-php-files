@@ -1,13 +1,13 @@
 
 .color-change {
-    background-color: #fca504;
+    background-color:#ffc107;
     color: #bfc1bf;
     border-radius: 10px;
 }
 
 
 .font {
-    color:  #fca504;
+    color:  #ffc107;
     font-size: 21px;
     margin-left: 50px;
 }
@@ -22,13 +22,13 @@
     margin-top: 40px;
     position: fixed;
     height: 80px;
-    background-color: #fca504;
+    background-color:#ffc107;
     z-index: 12;
 }
 
 
 b{   margin-left: 0px;
-    color: #fca504;
+    color: #ffc107;
     font-family: 'cooper', sans-serif;
     line-height:-2;
 }
@@ -38,7 +38,7 @@ b{   margin-left: 0px;
     width:90%;
 }
 h1, h5{
-    color: #fca504;
+    color: #ffc107;
     font-family: 'Lucida Sans', 'Lucida Sans Regular';
 }
 p{
@@ -48,7 +48,7 @@ p{
 }
 footer{
 
-    background-color: #fca504;
+    background-color: #ffc107;
     color:#bfc1bf;
   
 }
