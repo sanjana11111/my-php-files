@@ -3,7 +3,7 @@
 session_start();
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!= true){
   header("location: loginsystem_login.php");
-  
+  exit;
 }
 
 ?>
@@ -34,25 +34,25 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!= true){
 
     <div class="container mt-5 me-5">
       <hr>
-      <h1 class="display-4"><b>Healthy lifestyle:Tips For You
+      <h1 class="display-4" style="margin-left: 134px;"><b>Healthy lifestyle : Tips For You
          
-          <div class="life" style="margin-left: 394px;">
+          <div class="life" style="margin-left: 249px;">
           Welcome-<?php echo $_SESSION['username'] ?></div>
         </b></h1>
 
     </div>
 
-    <div class="photo"  style="margin-top: 5px; margin-left: 380px; width: 46%;">
+    <div class="photo"  style="margin-top: 5px; margin-left: 280px; width:55%;">
       <div id="demo" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="front.jpg" alt="front" class="d-block">
+            <img src="front.jpg" alt="front" class="d-block" style=" width:100%; height:350px;">
           </div>
           <div class="carousel-item">
-            <img src="yoga.jpg" alt="middle" class="d-block">
+            <img src="yoga.jpg" alt="middle" class="d-block" style="width:100%; height:350px;">
           </div>
           <div class="carousel-item">
-            <img src="eat.jpg" alt="end" class="d-block">
+            <img src="eat.jpg" alt="end" class="d-block" style="width:100%; height:350px;" >
           </div>
         </div>
 
@@ -64,7 +64,8 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!= true){
           <span class="carousel-control-next-icon"></span>
         </button>
       </div>
-
+      </div>
+<div class="container" style="margin-left: 55px; width:75%;">
       <div class="tip1">
         <h1>Healthy lifestyle and longevity</h1>
 
@@ -111,15 +112,17 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!= true){
           National Health and Nutrition Examination Surveys and the Centers for Disease Control and Prevention's
           Wide-Ranging Online Data for Epidemiologic Research.</p>
       </div>
+      </div>
   </main>
   <footer>
-    <!-- <div class="foot">
+    <div class="foot">
 
         <span class="headding" style="width:500px;">DO YOU WANT TO LOG OUT THEN <br>CHECK THIS BUTTON</span>
+        <a href="loginsystem_logout.php">
         <button class="form-control" class="sub1" type="submit"
-        style="width:272px; height: 96px; position:absolute; left:1045px;top:1346px;color:rgb(253, 45, 8);" onclick="window.location.href='loginsystem_logout.php';"><strong >
-         <h1>LOG OUT</h1></strong></button>
-    </div> -->
+        style="width:272px; height: 96px; position:absolute; left:1045px;top:1576px;color:rgb(253, 45, 8);"><strong >
+         <h1>LOG OUT</h1></strong></button></a>
+    </div>
 
 
   </footer>
