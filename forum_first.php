@@ -12,8 +12,61 @@
   </head>
   <body>
     <?php include 'forum_nav.php';?>
-    <div class="container">
-      <h2>Welcome To Our Site E-Coding</h2>
+    <div class="container mt-3" style="color:rgb(104, 62, 69);">
+      <h1 class="text-center">Welcome To Our Site E-Coding</h1>
+      <br>
+      <h2  class="text-center mt-2 mb-4">Categories</h2>
+      <div class="row">
+<!-- Use a for loop to iterate through categories. -->
+
+        <div class="col-md-3">
+        <div class="card " style="width: 18rem;">
+        <img src="https://source.unsplash.com/300x200/?html,code" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">View Threads</a>
+        </div>
+      </div>
+        </div>
+
+        
+        <div class="col-md-3">
+        <div class="card " style="width: 18rem;">
+        <img src="https://source.unsplash.com/300x200/?html,code" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">View Threads</a>
+        </div>
+      </div>
+        </div>
+
+        
+        <div class="col-md-3">
+        <div class="card " style="width: 18rem;">
+        <img src="https://source.unsplash.com/300x200/?html,code" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">View Threads</a>
+        </div>
+      </div>
+        </div>
+
+        
+        <div class="col-md-3">
+        <div class="card " style="width: 18rem;">
+        <img src="https://source.unsplash.com/300x200/?html,code" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">View Threads</a>
+        </div>
+      </div>
+        </div>
+
+      </div>
     </div>
    
     <?php include 'forum_footer.php';?>
@@ -22,7 +75,7 @@
 
      <!-- Optional JavaScript; choose one of the two! -->
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha383-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     
