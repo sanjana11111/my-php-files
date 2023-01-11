@@ -3,14 +3,14 @@
 $servername="localhost";
 $username="root";
 $password="";
-$database="categories";
+$database="e_coding";
 
 $conn = mysqli_connect($servername,$username,$password,$database);
 
-if(!$conn){
+// if($conn){
 //     echo "success";
 // }else{
-    die("Error".mysqli_connect_error());
-}
+//     die("Error". mysqli_connect_error() );
+// }
 
 ?>
