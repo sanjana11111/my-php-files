@@ -2,7 +2,7 @@
 
 echo'<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 <div class="container-fluid">
-  <a class="navbar-brand"  style="font-size:30px;" href="forum_first.php">E-Coding</a>
+  <a class="navbar-brand"  style="font-size:25px;" href="forum_first.php">E-Coding</a>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -49,7 +49,10 @@ echo '
 </div>
 </nav>';
 
+
+
 include 'forum_loginm.php';
 include 'forum_signupm.php';
 
 ?>
+
