@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+    </script> -->
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -41,7 +41,32 @@
    }
   ?>
 
+    <?php 
+   $showAlert=false;
+   $method= $_SERVER['REQUEST_METHOD'];
+ 
+   if($method=='POST'){
+    //INSERT INTO thread  DATABASE
+    $th_title=$_POST['title'];
+    $th_comment=$_POST['comment'];
 
+    $sql="INSERT INTO `thread`(`thread_title`, `thread_desc`, `thread_cat_id`, `thread_user_id`, `timestamp`) VALUES ('$th_title','$th_comment','$id','0', current_timestamp())";
+    $result=mysqli_query($conn ,$sql);
+    $showAlert=true;
+
+   }
+  
+  ?>
+    <?php
+ 
+ if($showAlert){
+    echo'<div class="alert alert-info alert-dismissible fade show" role="alert">
+    <h4 style="font-weight:100;"><strong>Successfully!</strong>Your thread has been added! Please wait for community to respond</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>';
+ }
+
+   ?>
     <section class="py-1 text-center container">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
@@ -49,37 +74,67 @@
                 <p style="font-size:24px; font-weight: 100;"><?php echo $cat_desc ?></p>
 
                 <a href="#" class="btn btn-primary btn-lg my-2" role="button">Learn more</a>
-
-
             </div>
         </div>
     </section>
 
-    <div class="container" style="min-height:415px; padding:0 190px;">
-        <h1>Start a Discussion?</h1>
+    <div class="container-fluid" style="min-height:415px; padding:0 190px;">
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header">
+                    <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+                        <h1>Start a Discussion?</h1>
+                    </a>
+                </div>
+                <div id="collapseOne" class="collapse" data-bs-parent="#accordion">
+                    <div class="card-body">
 
-        <div class="container">
-            <form>
-                <div class="mb-2">
-                    <label for="exampleInputEmail1" class="form-label"><h4 class="text-secondary">Problem Title</h4></label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text"><P class="text-secondary">Keep your title title as short and crisp as possible</P></div>
+                        <div class="container">
+
+                            <form action=<?php echo $_SERVER['REQUEST_URI'] ?> method="POST">
+                                <div class="mb-2">
+                                    <label for="title" class="form-label">
+                                        <h4 class="text-secondary">Problem Title</h4>
+                                    </label>
+                                    <input type="text" class="form-control" id="title" name="title"
+                                        aria-describedby="emailHelp">
+                                    <div id="emailHelp" class="form-text">
+                                        <P class="text-secondary">Keep your title title as short and crisp as possible
+                                        </P>
+                                    </div>
+                                </div>
+
+                                <div class="mb-2">
+                                    <label for="comment" class="form-label">
+                                        <h4 class="text-secondary">Ellaborate Your Concern</h4>
+                                    </label>
+                                    <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+                                </div>
+                                <center><button type="submit" class="btn btn-primary btn-lg my-3">Submit Your
+                                        Forum</button>
+                                </center>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="mb-2">
-                    <label for="exampleFormControlTextarea1" class="form-label"><h4 class="text-secondary">Ellaborate Your Concern</h4></label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-                <center><button type="submit" class="btn btn-primary btn-lg my-3">Submit Your Forum</button></center>
-            </form>
+            </div>
+
         </div>
+        <div id="accordion1">
+            <div class="card">
+                <div class="card-header">
+                    <a class="btn" data-bs-toggle="collapse" href="#collapseTwo">
+                        <h1>Browse Question</h1>
+                        </a>
+                </div>
+                <div id="collapseTwo" class="collapse show" data-bs-parent="#accordion1">
+                    <div class="card-body">
 
-        <h1>Browse Question</h1>
-        <?php
+                        <?php
 
         $id=$_GET['catid'];
 
-      $sql="SELECT * FROM `thread` WHERE thread_cat_id =$id;";
+      $sql="SELECT * FROM `thread` WHERE thread_cat_id =$id";
 
      $result=mysqli_query($conn ,$sql);
      $noResult= true;
@@ -105,35 +160,24 @@
                 if($noResult){
 
                     echo'
-                <div class="mt-4 p-5 text-secondary rounded" style="background-color:#f2f2f2;">
-                    <h1 class="display-5">No Results Found</h1> 
+                <div class="mt-4 p-5 text-secondary rounded" style="background-color:#e1f0f7;">
+                    <h1 class="display-5">No Threads Found</h1> 
                     <h4 style="font-weight:100;">BE the first persone to ask a question..........?</h4> 
                 </div>';
                 }
                 ?>
-    </div>
+                </div>
 
+                </div>
+                </div>
+            </div>
+            </div>
 
+               <?php include 'forum_footer.php';?>
+                <!-- Optional JavaScript; choose one of the two! -->
+                <!-- Option 1: Bootstrap Bundle with Popper -->
 
-
-
-
-
-    <?php include 'forum_footer.php';?>
-    <!-- Optional JavaScript; choose one of the two! -->
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha383-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
-    </script>
+                <!-- Option 2: Separate Popper and Bootstrap JS -->
 
 
 </body>
