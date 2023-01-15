@@ -19,24 +19,52 @@
 <body>
     <?php include 'forum_nav.php';?>
     <?php include 'forum_dbconnect.php';?>
-
-
     <?php
            
-     $id=$_GET['threadid'];
-     $sql="SELECT * FROM `thread` WHERE thread_id = '$id';";
+           $id=$_GET['threadid'];
+           $sql="SELECT * FROM `thread` WHERE thread_id = '$id';";
+      
+           $result=mysqli_query($conn ,$sql);
+         
+           $noResult=false;
+      
+              while($row = mysqli_fetch_assoc($result)){
+      
+                  $noResult=true; 
+                  $title = $row ['thread_title'];
+                  $desc = $row ['thread_desc'];  
+              }
+            
+      ?>
 
+
+          
+
+    <?php 
+   $showAlert=false;
+   $method= $_SERVER['REQUEST_METHOD'];
+   if($method=='POST'){
+    //INSERT INTO d_comment DATABASE
+    $d_comment=$_POST['comment'];
+    
+    $sql="INSERT INTO `d_comments`(`d_comment_contant`, `d_thread_id`, `d_comment_by`, `d_comment_time`) VALUES ('$d_comment','$id','0',current_timestamp())";
     $result=mysqli_query($conn ,$sql);
-   
- 
+    $showAlert=true;
 
-   while($row = mysqli_fetch_assoc($result)){
-     
-    $title = $row ['thread_title'];
-    $desc = $row ['thread_desc'];  
    }
+  
   ?>
 
+<?php
+ 
+ if($showAlert){
+    echo'<div class="alert alert-info alert-dismissible fade show" role="alert">
+    <h4 style="font-weight:100;"><strong>Done!</strong>Your comment is added!!!</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>';
+ }
+
+   ?>
 
     <section class="py-1 text-center container">
         <div class="row py-lg-5">
@@ -54,48 +82,65 @@
     </section>
 
     <div class="container" style="min-height:525px;">
-        <h1>Discussions</h1>
-        <?php
+        <h1>Post a Comment</h1>
 
-    /*    $id=$_GET['threadid'];
+        <div class="container">
 
-     $sql="SELECT * FROM `thread` WHERE thread_id =$id";
+            <form action=<?php echo $_SERVER['REQUEST_URI'] ?> method="POST">
 
-    $result=mysqli_query($conn ,$sql);
-   
-   while($row = mysqli_fetch_assoc($result)){
-     
+                <div class="mb-2">
+                    <label for="comment" class="form-label">
+                        <h4 class="text-secondary">Type of Comment</h4>
+                    </label>
+                    <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+                </div>
+                <center><button type="submit" class="btn btn-primary btn-lg my-3">Post Comment</button>
+                </center>
+            </form>
+        </div>
+        <div class="container" style="min-height:525px;">
+            <h1>Discussions</h1>
+     <?php
+
+                $id=$_GET['threadid'];
+                $sql="SELECT * FROM `d_comments` WHERE `d_thread_id`=$id";
+                $result= mysqli_query($conn,$sql);
+                $noResult = true;
+
+                while($row = mysqli_fetch_assoc($result)){
+
+                    $noResult = false;
+                    $id = $row['d_comment_id'];
+                    $content = $row['d_comment_contant'];
+
+              
  
-    $title = $row ['thread_title'];
-    $desc = $row ['thread_desc'];  
-
             echo'  <div class="container">
             <div class="media my-4">
-            <img src="indexpic.jpg" width="55px" class="align-self-start mr-3" alt="..." style="position:reletive;">
+            <img src="forum_pic.jpg" width="55px" class="align-self-start mr-3" alt="..." style="position:reletive;">
             <span class="media-body" style="position:absolute; margin-right: 232px;">
-                <h5 class="mt-0"><a href="forum_thread.php" class="text-dark" style="text-decoration:none;">'.$title.'</a></h5>
-                '.$desc.'
-
+                <h4 class="mt-2" style="font-weight:400;">'.$content.'</h4>
                 </span>
             </div>
             </div>';
+        }
+           
+          //   echo var_dump($noResult);
+          if($noResult){
 
-   }  */
-?>
+              echo'
+          <div class="mt-4 p-5 text-secondary rounded" style="background-color:#e1f0f7;">
+              <h1 class="display-5">No Threads Found</h1> 
+              <h4 style="font-weight:100;">BE the first persone to ask a question..........?</h4> 
+          </div>';
+          }
+    
+        ?>
+        </div>
     </div>
-
-
-
-
-
-
-
     <?php include 'forum_footer.php';?>
     <!-- Optional JavaScript; choose one of the two! -->
     <!-- Option 1: Bootstrap Bundle with Popper -->
-
-
-
 </body>
 
 </html>
