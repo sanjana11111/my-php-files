@@ -76,17 +76,29 @@
                     data-bs-target="#posted_name">
                     Posted By
                 </button>
-                <div id="posted_name" class="collapse" style="font-size:20px;">Name who's posted..</div>
+                <div id="posted_name" class="collapse" style="font-size:20px;">
+                <?php
+if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
+                    echo $_SESSION['useremail'];}
+                    else{
+                        echo"Annonumous user (Please creat your account)";
+                    }
+                    ?>
+                </div>
 
             </div>
     </section>
-
-    <div class="container" style="min-height:525px;">
+    <div class="container" >
         <h1>Post a Comment</h1>
+                </div>
+<?php
+if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
+echo'
+
 
         <div class="container">
 
-            <form action=<?php echo $_SERVER['REQUEST_URI'] ?> method="POST">
+            <form action='. $_SERVER['REQUEST_URI'] .'method="POST">
 
                 <div class="mb-2">
                     <label for="comment" class="form-label">
@@ -97,7 +109,15 @@
                 <center><button type="submit" class="btn btn-primary btn-lg my-3">Post Comment</button>
                 </center>
             </form>
-        </div>
+        </div>';
+
+    }
+    else{
+        echo'<div class="container text-danger">IF YOU WAND TO POST A COMMENT THEN PLEASE LOG IN*</div>';
+    }
+
+        ?>
+
         <div class="container" style="min-height:525px;">
             <h1>Discussions</h1>
      <?php
@@ -119,7 +139,9 @@
             <div class="media my-4">
             <img src="forum_pic.jpg" width="55px" class="align-self-start mr-3" alt="..." style="position:reletive;">
             <span class="media-body" style="position:absolute; margin-right: 232px;">
-                <h4 class="mt-2" style="font-weight:400;">'.$content.'</h4>
+            <h5 class="font-weight-bold my-0">Annonimous User</h5>
+                <p style="font-weight:400; font-size:15px;">'.$content.'</>
+                
                 </span>
             </div>
             </div>';

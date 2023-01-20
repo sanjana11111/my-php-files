@@ -47,8 +47,8 @@
  
    if($method=='POST'){
     //INSERT INTO thread  DATABASE
-    $th_title=$_POST['title'];
-    $th_comment=$_POST['comment'];
+    $th_title=$_POST['th_title'];
+    $th_comment=$_POST['th_comment'];
 
     $sql="INSERT INTO `thread`(`thread_title`, `thread_desc`, `thread_cat_id`, `thread_user_id`, `timestamp`) VALUES ('$th_title','$th_comment','$id','0', current_timestamp())";
     $result=mysqli_query($conn ,$sql);
@@ -81,34 +81,42 @@
     <div class="container-fluid" style="min-height:415px; padding:0 190px;">
         <div id="accordion">
             <div class="card">
-                <div class="card-header">
+
+            <div class="card-header">
                     <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+
+                    
                         <h1>Start a Discussion?</h1>
                     </a>
                 </div>
+            <?php 
+            if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
+            
+            echo'
+                
                 <div id="collapseOne" class="collapse" data-bs-parent="#accordion">
                     <div class="card-body">
 
                         <div class="container">
 
-                            <form action=<?php echo $_SERVER['REQUEST_URI'] ?> method="POST">
+                            <form action='. $_SERVER['REQUEST_URI'].'method="POST">
                                 <div class="mb-2">
-                                    <label for="title" class="form-label">
+                                    <label for="th_title" class="form-label">
                                         <h4 class="text-secondary">Problem Title</h4>
                                     </label>
-                                    <input type="text" class="form-control" id="title" name="title"
+                                    <input type="text" class="form-control" id="th_title" name="th_title"
                                         aria-describedby="emailHelp">
                                     <div id="emailHelp" class="form-text">
-                                        <P class="text-secondary">Keep your title title as short and crisp as possible
+                                        <P class="text-secondary">Keep your title as short and crisp as possible
                                         </P>
                                     </div>
                                 </div>
 
                                 <div class="mb-2">
-                                    <label for="comment" class="form-label">
+                                    <label for="th_comment" class="form-label">
                                         <h4 class="text-secondary">Ellaborate Your Concern</h4>
                                     </label>
-                                    <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+                                    <textarea class="form-control" id="th_comment" name="th_comment" rows="3"></textarea>
                                 </div>
                                 <center><button type="submit" class="btn btn-primary btn-lg my-3">Submit Your
                                         Forum</button>
@@ -116,7 +124,13 @@
                             </form>
                         </div>
                     </div>
-                </div>
+                </div>';
+            }
+            else{
+                echo'<div class="text-danger">IF YOU WAND TO START A DISSCUSSION THEN PLEASE LOG IN*</div>';
+            }
+
+                ?>
             </div>
 
         </div>
@@ -149,7 +163,7 @@
             <div class="media my-4">
             <img src="forum_pic.jpg" width="55px" class="align-self-start mr-3" alt="..." style="position:reletive;">
             <span class="media-body" style="position:absolute; margin-right: 232px;">
-                <h5 class="mt-0"><a href="forum_thread.php?threadid='.$id.'" class="text-dark" style="text-decoration:none;">'.$title.'</a></h5>
+                <h5 class="my-0"><a href="forum_thread.php?threadid='.$id.'" class="text-dark" style="text-decoration:none;">'.$title.'</a></h5>
                 '.$desc.'
 
                 </span>

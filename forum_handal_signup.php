@@ -1,5 +1,5 @@
 <?php
-$showError="false";
+$showError = false;
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 include 'forum_dbconnect.php';
 
@@ -9,7 +9,7 @@ $cpass=$_POST['cpassword'];
 
 //check weather email exixst
 
-$existSql="SELECT * FROM `forum_users` WHERE user_email= '$user_email';";
+$existSql="SELECT * FROM `forum_users` WHERE user_email = '$user_email'";
 $result = mysqli_query($conn,$existSql);
 $numRows = mysqli_num_rows($result);
 
@@ -19,25 +19,27 @@ if($numRows>0){
         else{
             if($pass == $cpass){
 
-                        $hash= password_hash($pass,PASSWORD_DEFAULT);
-                        $sql= "INSERT INTO `forum_users` (`user_email`, `user_pass``user_timestamp`) VALUES ('$user_email', '$hash', current_timestamp())";
+                        $hash= password_hash($pass, PASSWORD_DEFAULT);
+                        $sql= "INSERT INTO `forum_users` (`user_email`, `user_pass`,`user_timestamp`) VALUES ('$user_email', '$hash', current_timestamp())";
                         $result = mysqli_query($conn,$sql);
-echo $result;
+
                     if($result){
                         $showAlert=true;
                         //redirect
-                        header("location: forum_first.php?signupsuccess=true");
+                        header("Location: forum_first.php?signupsuccess=true");
+                        exit();
                     }
                 }
                 else{
                   $showError ="Passwords do not match";
                 
+   
                 }
         }
 
-header("location: forum_first.php?signupsuccess=false&error=$showError");
-
-
+        header("location: forum_first.php?signupsuccess=false&error=$showError");
+        // header("Location: forum_first.php?signupsuccess=true");
 }
+
 
 ?>

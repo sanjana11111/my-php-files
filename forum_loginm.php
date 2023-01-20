@@ -1,5 +1,5 @@
 <!-- Modal -->
-<form action="loginsystem_login.php" method="post">
+<form action="forum_handal_login.php" method="post">
 
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -13,13 +13,13 @@
 
 
                     <div class="mb-3 col-md-12">
-                        <label for="email" class="form-label">E-mail Address</label>
-                        <input type="text" maxlength=20; class="form-control" id="email" name="email">
+                        <label for="loginEmail" class="form-label">E-mail Address</label>
+                        <input type="eamil" maxlength=20; class="form-control" id="loginEmail" name="loginEmail">
 
                     </div>
                     <div class="mb-3  col-md-12">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" maxlength=20; class="form-control" id="password" name="password">
+                        <label for="loginPass" class="form-label">Password</label>
+                        <input type="password" maxlength=20; class="form-control" id="loginPass" name="loginPass">
                     </div>
 
                     <div class="mb-3 form-check">

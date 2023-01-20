@@ -1,5 +1,5 @@
 <!-- Modal -->
-<form action="loginsystem_signup.php" method="post">
+<form action="forum_handal_signup.php" method="post">
     <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -13,7 +13,7 @@
 
                     <div class="mb-3 col-md-12">
                         <label for="email" class="form-label">E-mail Address</label>
-                        <input type="text" maxlength=20; class="form-control" id="email" name="email">
+                        <input type="eamil" maxlength=20; class="form-control" id="email" name="email">
 
                     </div>
                     <div class="mb-3  col-md-12">
