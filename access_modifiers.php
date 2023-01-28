@@ -2,8 +2,8 @@
 
 
 //Access modifier in php is 
-//1.private-can be accessed from anywhere
-//2.public-can only be accessed  from within the class
+//1.public-can be accessed from anywhere
+//2.private-can only be accessed  from within the class
 //3.protected-can be accessed within the class and from derived class.
 
 
