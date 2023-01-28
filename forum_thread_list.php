@@ -28,6 +28,7 @@
     <?php
            
      $id=$_GET['catid'];
+
      $sql="SELECT * FROM `categories` WHERE category_id = '$id';";
 
     $result=mysqli_query($conn ,$sql);
@@ -82,14 +83,14 @@
         <div id="accordion">
             <div class="card">
 
-            <div class="card-header">
+                <div class="card-header">
                     <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
 
-                    
+
                         <h1>Start a Discussion?</h1>
                     </a>
                 </div>
-            <?php 
+                <?php 
             if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
             
             echo'
@@ -139,7 +140,7 @@
                 <div class="card-header">
                     <a class="btn" data-bs-toggle="collapse" href="#collapseTwo">
                         <h1>Browse Question</h1>
-                        </a>
+                    </a>
                 </div>
                 <div id="collapseTwo" class="collapse show" data-bs-parent="#accordion1">
                     <div class="card-body">
@@ -155,9 +156,13 @@
 
       while($row = mysqli_fetch_assoc($result)){
       $noResult= false;
-      $id = $row ['thread_id'];
-      $title = $row ['thread_title'];
-       $desc = $row ['thread_desc'];  
+      $id = $row['thread_id'];
+      $title = $row['thread_title'];
+       $desc = $row['thread_desc'];
+       $thread_user_id = $row['thread_user_id'];
+       $sql2="SELECT user_email FROM `forum_users` WHERE sno=22;";
+       
+
 
             echo'  <div class="container">
             <div class="media my-4">
@@ -180,18 +185,18 @@
                 </div>';
                 }
                 ?>
-                </div>
+                    </div>
 
-                </div>
                 </div>
             </div>
-            </div>
+        </div>
+    </div>
 
-               <?php include 'forum_footer.php';?>
-                <!-- Optional JavaScript; choose one of the two! -->
-                <!-- Option 1: Bootstrap Bundle with Popper -->
+    <?php include 'forum_footer.php';?>
+    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
 
-                <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
 
 
 </body>

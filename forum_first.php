@@ -22,8 +22,9 @@
 </head>
 
 <body>
+     <?php include 'forum_dbconnect.php';?>
     <?php include 'forum_nav.php';?>
-    <?php include 'forum_dbconnect.php';?>
+
 
     <!-- slider -->
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">

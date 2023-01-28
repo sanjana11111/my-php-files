@@ -1,3 +1,4 @@
+<?php include 'forum_dbconnect.php';?>
 <?php
 
   session_start();
@@ -21,20 +22,17 @@ echo'<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
         Categories
     </a>
-    <ul class="dropdown-menu">
-
-        <li><a class="dropdown-item" href="#">Fitness</a></li>
-        <li><a class="dropdown-item" href="#">Food</a></li>
-        <li>
-            <hr class="dropdown-divider">
-        </li>
-        <li><a class="dropdown-item" href="#">Diet-Plan</a></li>
+    <ul class="dropdown-menu">';
+  
+    $sql = "SELECT category_name, category_id FROM `categories` LIMIT 6";
+    $result= mysqli_query($conn,$sql);
+    while($row = mysqli_fetch_assoc($result)){
+          echo'<li><a class="dropdown-item" href="forum_thread_list.php?catid='.$row['category_id'].'">'.$row['category_name'].'</a></li>';
+       }
+        echo '
     </ul>
 </li>
-
-
-
-      <li class="nav-item" style="font-size:18px;">
+     <li class="nav-item" style="font-size:18px;">
         <a class="nav-link " href="forum_contact.php" tabindex="-3" >Contact</a>
       </li>
     </ul>';
@@ -42,8 +40,8 @@ echo'<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
 if(isset( $_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
   {
-    echo'<form class="d-flex" style="font-size:14px;">
-    <input class="form-control me-3 " type="search" style="width:35%" placeholder="Search" aria-label="Search">
+    echo'<form class="d-flex" style="font-size:14px;" method="get" action="forum_search.php">
+    <input class="form-control me-3" name="qurey" type="search" style="width:35%" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-primary mt-1" type="submit">Search</button>
     <p class="text-light mx-3"   style="position:relative; top:13px;">Welcome:'. $_SESSION['useremail'].'
     
@@ -55,7 +53,7 @@ if(isset( $_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
   else{
     echo'
     <form class="d-flex" style="font-size:18px;">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <input class="form-control me-2" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-primary" type="submit">Search</button>
     </form>
     <div class="mx-2" style="font-size:18px;">
@@ -86,3 +84,5 @@ if (isset ($_GET['signupsuccess']) && $_GET['signupsuccess'] == "true" ){
   
 
 ?>
+
+<!-- alter table thread add FULLTEXT (`thread_title`,`thread_desc`); -->
