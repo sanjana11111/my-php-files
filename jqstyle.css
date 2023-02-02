@@ -1,0 +1,16 @@
+
+.container {
+    width: 50%;
+    margin-top: 15px;
+}
+
+.card-body,
+.output,
+option {
+    font-family: system-ui;
+    font-size: 19px;
+}
+
+.error {
+    color: rgb(189, 5, 5);
+}

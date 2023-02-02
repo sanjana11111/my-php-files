@@ -20,8 +20,6 @@
         }
 
         
-     
-
         // $test = new base("Wow!!!!!!!"); >>>>>>>> for construct
         
         $test = new derived();
